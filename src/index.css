@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+body {
+  @apply p-4 text-white;
+}
+
+button {
+  @apply rounded-md bg-gradient-to-r  px-6 py-2 font-semibold text-white hover:opacity-50  disabled:text-white disabled:opacity-50;
+}
+
+input[type='text'] {
+  @apply rounded-md border-2 px-2 py-1 text-white shadow-lg outline-none;
+}
+
+.e-grid .e-rowcell {
+line-height: 10vh;
+}
+
+@theme {
+  --color-ichika: #33AAEE;
+  --color-saki: #FFDD44;
+  --color-honami: #EE6666;
+  --color-shiho: #BBDD22;
+  --color-minori: #FFCCAA;
+  --color-haruka: #99CCFF;
+  --color-airi: #FFAACC;
+  --color-shizuku: #99EEDD;
+  --color-kohane: #FF6699;
+  --color-an: #00BBDD;
+  --color-akito: #FF7722;
+  --color-toya: #0077DD;
+  --color-tsukasa: #FFBB00;
+  --color-emu: #FF66BB;
+  --color-nene: #33DD99;
+  --color-rui: #BB88EE;
+  --color-kanade: #BB6688;
+  --color-mafuyu: #8888CC;
+  --color-ena: #CCAA88;
+  --color-mizuki: #DDAACC;
+}
+
+div {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+div.ln-chars {
+  background-image: url("/img/ln_logo.png");
+  background-color: #4455DD;
+}
+
+div.mmj-chars {
+  background-image: url("/img/mmj_logo.png");
+  background-color: #88DD44;
+}
+
+div.vbs-chars {
+  background-image: url("/img/vbs_logo.png");
+  background-color: #EE1166;
+}
+
+div.wxs-chars {
+  background-image: url("/img/wxs_logo.png");
+  background-color: #FF9900;
+}
+
+div.\32 \35 n-chars {
+  background-image: url("/img/25n_logo.png");
+  background-color: #884499;
+}
+
+img {
+  @apply hover:-translate-1
+}
+
+img.ichika {
+  @apply hover:drop-shadow-ichika hover:drop-shadow-md;
+}
+
+img.saki {
+  @apply hover:drop-shadow-saki hover:drop-shadow-md;
+}
+
+img.honami {
+  @apply hover:drop-shadow-honami hover:drop-shadow-md;
+}
+
+img.shiho {
+  @apply hover:drop-shadow-shiho hover:drop-shadow-md;
+}
+
+img.minori {
+  @apply hover:drop-shadow-minori hover:drop-shadow-md;
+}
+
+img.haruka {
+  @apply hover:drop-shadow-haruka hover:drop-shadow-md;
+}
+
+img.airi {
+  @apply hover:drop-shadow-airi hover:drop-shadow-md;
+}
+
+img.shizuku {
+  @apply hover:drop-shadow-shizuku hover:drop-shadow-md;
+}
+
+img.kohane {
+  @apply hover:drop-shadow-kohane hover:drop-shadow-md;
+}
+
+img.an {
+  @apply hover:drop-shadow-an hover:drop-shadow-md;
+}
+
+img.akito {
+  @apply hover:drop-shadow-akito hover:drop-shadow-md;
+}
+
+img.toya {
+  @apply hover:drop-shadow-toya hover:drop-shadow-md;
+}
+
+img.tsukasa {
+  @apply hover:drop-shadow-tsukasa hover:drop-shadow-md;
+}
+
+img.emu {
+  @apply hover:drop-shadow-emu hover:drop-shadow-md;
+}
+
+img.nene {
+  @apply hover:drop-shadow-nene hover:drop-shadow-md;
+}
+
+img.rui {
+  @apply hover:drop-shadow-rui hover:drop-shadow-md;
+}
+
+img.kanade {
+  @apply hover:drop-shadow-kanade hover:drop-shadow-md;
+}
+
+img.mafuyu {
+  @apply hover:drop-shadow-mafuyu hover:drop-shadow-md;
+}
+
+img.ena {
+  @apply hover:drop-shadow-ena hover:drop-shadow-md;
+}
+
+img.mizuki {
+  @apply hover:drop-shadow-mizuki hover:drop-shadow-md;
+}
