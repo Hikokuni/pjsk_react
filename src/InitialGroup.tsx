@@ -3,19 +3,25 @@ import CharacterProps from './Character';
 import { useDroppable } from '@dnd-kit/core';
 
 type InitialGroupProps = {
-    group: GroupType;
+    group;
     characters: Character[];
+    project: string;
 };
 
-export default function InitialGroup({ group, characters } : InitialGroupProps) {
+export default function InitialGroup({ group, characters, project } : InitialGroupProps) {
     const { setNodeRef } = useDroppable({
         id: group.id
     });
+
     return(
-        <div ref={setNodeRef} className="grid grid-cols-4 grid-rows-5 rounded-lg w-full p-4 gap-4 bg-contain">
+        <div ref={setNodeRef} className={`initial-group ${project}-initial-group`}>
             {characters.map(character => {
                 return(
-                    <CharacterProps key={character.id} character={character} />
+                    <CharacterProps 
+                        key={character.id} 
+                        character={character} 
+                        project={project}
+                    />
                 );
             })}
         </div>

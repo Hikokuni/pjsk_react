@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 body {
-  @apply p-4 text-white;
+  @apply bg-neutral-800 text-white;
 }
 
 button {
-  @apply rounded-md bg-gradient-to-r  px-6 py-2 font-semibold text-white hover:opacity-50  disabled:text-white disabled:opacity-50;
+  @apply rounded-md bg-gradient-to-r px-2 py-2 font-semibold text-white hover:opacity-50  disabled:text-white disabled:opacity-50;
 }
 
 input[type='text'] {
@@ -13,143 +13,530 @@ input[type='text'] {
 }
 
 .e-grid .e-rowcell {
-line-height: 10vh;
+  line-height: 10vh;
+}
+
+.tab-list {
+  @apply flex flex-row;
+}
+
+.tab {
+  @apply bg-neutral-700 rounded-t-lg px-4 py-1 -bottom-px cursor-pointer;
+}
+
+.tab[class*="--selected"] {
+  @apply bg-neutral-500;
+}
+
+.tab-panel {
+  @apply bg-neutral-500;
+}
+
+.tab-panel[class*="--selected"] {
+}
+
+.pjsk-initial-group {
+  @apply grid grid-cols-4 grid-rows-5 gap-[1vh];
+}
+
+.pjsk-groups {
+  @apply grid grid-rows-5 rounded-r-lg bg-neutral-600 p-[1vh] gap-[1vh] w-1/2
+}
+
+.pjsk-group {
+  @apply grid grid-cols-4 grid-rows-1 w-full gap-[1vh] bg-[length:80%_auto];
+}
+
+.bandori-initial-group {
+  @apply grid grid-cols-5 grid-rows-9 gap-y-[1vh];
+}
+
+.bandori-groups {
+  @apply grid grid-rows-9 rounded-r-lg bg-neutral-600 p-[1vh] gap-[1vh] w-1/2
+}
+
+.bandori-group {
+  @apply grid grid-cols-5 grid-rows-1 w-full;
+}
+
+div.initial-group {
+  @apply rounded-sm w-full bg-contain p-[1vh];
+}
+
+div.group {
+  @apply bg-no-repeat bg-center inset-shadow-sm inset-shadow-black rounded-sm;
 }
 
 @theme {
-  --color-ichika: #33AAEE;
-  --color-saki: #FFDD44;
-  --color-honami: #EE6666;
-  --color-shiho: #BBDD22;
-  --color-minori: #FFCCAA;
-  --color-haruka: #99CCFF;
-  --color-airi: #FFAACC;
-  --color-shizuku: #99EEDD;
-  --color-kohane: #FF6699;
-  --color-an: #00BBDD;
-  --color-akito: #FF7722;
-  --color-toya: #0077DD;
-  --color-tsukasa: #FFBB00;
-  --color-emu: #FF66BB;
-  --color-nene: #33DD99;
-  --color-rui: #BB88EE;
-  --color-kanade: #BB6688;
-  --color-mafuyu: #8888CC;
-  --color-ena: #CCAA88;
-  --color-mizuki: #DDAACC;
+  --color-pjsk-ichika: #33AAEE;
+  --color-pjsk-saki: #FFDD44;
+  --color-pjsk-honami: #EE6666;
+  --color-pjsk-shiho: #BBDD22;
+  --color-pjsk-minori: #FFCCAA;
+  --color-pjsk-haruka: #99CCFF;
+  --color-pjsk-airi: #FFAACC;
+  --color-pjsk-shizuku: #99EEDD;
+  --color-pjsk-kohane: #FF6699;
+  --color-pjsk-an: #00BBDD;
+  --color-pjsk-akito: #FF7722;
+  --color-pjsk-toya: #0077DD;
+  --color-pjsk-tsukasa: #FFBB00;
+  --color-pjsk-emu: #FF66BB;
+  --color-pjsk-nene: #33DD99;
+  --color-pjsk-rui: #BB88EE;
+  --color-pjsk-kanade: #BB6688;
+  --color-pjsk-mafuyu: #8888CC;
+  --color-pjsk-ena: #CCAA88;
+  --color-pjsk-mizuki: #DDAACC;
+
+  --color-pjsk-ln: #4455DD;
+  --color-pjsk-mmj: #88DD44;
+  --color-pjsk-vbs: #EE1166;
+  --color-pjsk-wxs: #FF9900;
+  --color-pjsk-25n: #884499;
+
+  --color-bandori-kasumi: #FF5522;
+  --color-bandori-tae: #0077DD;
+  --color-bandori-rimi: #FF55BB;
+  --color-bandori-saya: #FFCC11;
+  --color-bandori-arisa: #AA66DD;
+  --color-bandori-ran: #EE0022;
+  --color-bandori-moca: #00CCAA;
+  --color-bandori-himari: #FF9999;
+  --color-bandori-tomoe: #BB0033;
+  --color-bandori-tsugumi: #FFEE88;
+  --color-bandori-aya: #FF88BB;
+  --color-bandori-hina: #55DDEE;
+  --color-bandori-chisato: #FFEEAA;
+  --color-bandori-maya: #99DD88;
+  --color-bandori-eve: #DDBBFF;
+  --color-bandori-yukina: #881188;
+  --color-bandori-sayo: #00AABB;
+  --color-bandori-lisa: #DD2200;
+  --color-bandori-ako: #DD0088;
+  --color-bandori-rinko: #BBBBBB;
+  --color-bandori-kokoro: #FFEE22;
+  --color-bandori-kaoru: #AA33CC;
+  --color-bandori-hagumi: #FF9922;
+  --color-bandori-kanon: #44DDFF;
+  --color-bandori-misaki: #006699;
+  --color-bandori-mashiro: #6677CC;
+  --color-bandori-touko: #EE6666;
+  --color-bandori-nanami: #EE7744;
+  --color-bandori-tsukushi: #EE7788;
+  --color-bandori-rui: #669988;
+  --color-bandori-layer: #CC0000;
+  --color-bandori-lock: #AAEE22;
+  --color-bandori-masking: #EEBB44;
+  --color-bandori-pareo: #FF99BB;
+  --color-bandori-chuchu: #00BBFF;
+  --color-bandori-tomori: #77BBDD;
+  --color-bandori-anon: #FF8899;
+  --color-bandori-rana: #77DD77;
+  --color-bandori-soyo: #FFDD88;
+  --color-bandori-taki: #7777AA;
+  --color-bandori-uika: #BB9955;
+  --color-bandori-mutsumi: #779977;
+  --color-bandori-umiri: #335566;
+  --color-bandori-nyamu: #AA4477;
+  --color-bandori-sakiko: #7799CC;
 }
 
-div {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+div.pjsk-ln {
+  @apply bg-[url("/img/pjsk/ln.png")]  bg-pjsk-ln;
 }
 
-div.ln-chars {
-  background-image: url("/img/ln_logo.png");
-  background-color: #4455DD;
+div.pjsk-mmj {
+  @apply bg-[url("/img/pjsk/mmj.png")] bg-pjsk-mmj;
 }
 
-div.mmj-chars {
-  background-image: url("/img/mmj_logo.png");
-  background-color: #88DD44;
+div.pjsk-vbs {
+  @apply bg-[url("/img/pjsk/vbs.png")] bg-pjsk-vbs;
 }
 
-div.vbs-chars {
-  background-image: url("/img/vbs_logo.png");
-  background-color: #EE1166;
+div.pjsk-wxs {
+  @apply bg-[url("/img/pjsk/wxs.png")] bg-pjsk-wxs;
 }
 
-div.wxs-chars {
-  background-image: url("/img/wxs_logo.png");
-  background-color: #FF9900;
+div.pjsk-25n {
+  @apply bg-[url("/img/pjsk/25n.png")] bg-pjsk-25n;
 }
 
-div.\32 \35 n-chars {
-  background-image: url("/img/25n_logo.png");
-  background-color: #884499;
+div.bandori-ppp {
+  background-image: url("/img/bandori/ppp.webp"), repeating-linear-gradient(
+    to bottom,
+    #FF3377,
+    #FF3377 20%,
+    #FFDDEE 80%,
+    #FFDDEE 100%
+  );
+  background-size: auto 60%, contain;
 }
 
-img {
-  @apply hover:-translate-1
+div.bandori-ag {
+  background-image: url("/img/bandori/ag.webp"), repeating-linear-gradient(
+    to bottom,
+    #EE3344,
+    #EE3344 20%,
+    #FFDDDD 80%,
+    #FFDDDD 100%
+  );
+  background-size: auto 70%, contain;
 }
 
-img.ichika {
-  @apply hover:drop-shadow-ichika hover:drop-shadow-md;
+div.bandori-pp {
+  background-image: url("/img/bandori/pp.webp"), repeating-linear-gradient(
+    to bottom,
+    #33DDAA,
+    #33DDAA 20%,
+    #DDFFEE 80%,
+    #DDFFEE 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.saki {
-  @apply hover:drop-shadow-saki hover:drop-shadow-md;
+div.bandori-rose {
+  background-image: url("/img/bandori/rose.webp"), repeating-linear-gradient(
+    to bottom,
+    #3344AA,
+    #3344AA 20%,
+    #DDDDFF 80%,
+    #DDDDFF 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.honami {
-  @apply hover:drop-shadow-honami hover:drop-shadow-md;
+div.bandori-hhw {
+  background-image: url("/img/bandori/hhw.webp"), repeating-linear-gradient(
+    to bottom,
+    #FFDD00,
+    #FFDD00 20%,
+    #FFFFDD 80%,
+    #FFFFDD 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.shiho {
-  @apply hover:drop-shadow-shiho hover:drop-shadow-md;
+div.bandori-morf {
+  background-image: url("/img/bandori/morf.webp"), repeating-linear-gradient(
+    to bottom,
+    #33AAFF,
+    #33AAFF 20%,
+    #33AAFF 80%,
+    #33AAFF 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.minori {
-  @apply hover:drop-shadow-minori hover:drop-shadow-md;
+div.bandori-ras {
+  background-image: url("/img/bandori/ras.webp"), repeating-linear-gradient(
+    to bottom,
+    #22CCCC,
+    #22CCCC 20%,
+    #39C9C5 80%,
+    #39C9C5 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.haruka {
-  @apply hover:drop-shadow-haruka hover:drop-shadow-md;
+div.bandori-mygo {
+  background-image: url("/img/bandori/mygo.webp"), repeating-linear-gradient(
+    to bottom,
+    #3388BB,
+    #3388BB 20%,
+    #3388BB 80%,
+    #3388BB 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.airi {
-  @apply hover:drop-shadow-airi hover:drop-shadow-md;
+div.bandori-am {
+  background-image: url("/img/bandori/am.webp"), repeating-linear-gradient(
+    to bottom,
+    #881144,
+    #881144 20%,
+    #881144 80%,
+    #881144 100%
+  );
+  background-size: auto 80%, contain;
 }
 
-img.shizuku {
-  @apply hover:drop-shadow-shizuku hover:drop-shadow-md;
+div.character {
+  @apply flex rounded-sm;
 }
 
-img.kohane {
-  @apply hover:drop-shadow-kohane hover:drop-shadow-md;
+div.pjsk-character {
+  @apply pt-[1vh];
 }
 
-img.an {
-  @apply hover:drop-shadow-an hover:drop-shadow-md;
+div.bandori-character {
+  @apply pt-0;
 }
 
-img.akito {
-  @apply hover:drop-shadow-akito hover:drop-shadow-md;
+img.tab-image {
+  @apply h-full object-contain hover:drop-shadow-md hover:drop-shadow-white hover:scale-110;
 }
 
-img.toya {
-  @apply hover:drop-shadow-toya hover:drop-shadow-md;
+img.character {
+  @apply hover:-translate-y-1 hover:drop-shadow-black hover:drop-shadow-md;
 }
 
-img.tsukasa {
-  @apply hover:drop-shadow-tsukasa hover:drop-shadow-md;
+img.pjsk-ichika {
+  @apply hover:drop-shadow-pjsk-ichika;
 }
 
-img.emu {
-  @apply hover:drop-shadow-emu hover:drop-shadow-md;
+img.pjsk-saki {
+  @apply hover:drop-shadow-pjsk-saki;
 }
 
-img.nene {
-  @apply hover:drop-shadow-nene hover:drop-shadow-md;
+img.pjsk-honami {
+  @apply hover:drop-shadow-pjsk-honami;
 }
 
-img.rui {
-  @apply hover:drop-shadow-rui hover:drop-shadow-md;
+img.pjsk-shiho {
+  @apply hover:drop-shadow-pjsk-shiho;
 }
 
-img.kanade {
-  @apply hover:drop-shadow-kanade hover:drop-shadow-md;
+img.pjsk-minori {
+  @apply hover:drop-shadow-pjsk-minori;
 }
 
-img.mafuyu {
-  @apply hover:drop-shadow-mafuyu hover:drop-shadow-md;
+img.pjsk-haruka {
+  @apply hover:drop-shadow-pjsk-haruka;
 }
 
-img.ena {
-  @apply hover:drop-shadow-ena hover:drop-shadow-md;
+img.pjsk-airi {
+  @apply hover:drop-shadow-pjsk-airi;
 }
 
-img.mizuki {
-  @apply hover:drop-shadow-mizuki hover:drop-shadow-md;
+img.pjsk-shizuku {
+  @apply hover:drop-shadow-pjsk-shizuku;
+}
+
+img.pjsk-kohane {
+  @apply hover:drop-shadow-pjsk-kohane;
+}
+
+img.pjsk-an {
+  @apply hover:drop-shadow-pjsk-an;
+}
+
+img.pjsk-akito {
+  @apply hover:drop-shadow-pjsk-akito;
+}
+
+img.pjsk-toya {
+  @apply hover:drop-shadow-pjsk-toya;
+}
+
+img.pjsk-tsukasa {
+  @apply hover:drop-shadow-pjsk-tsukasa;
+}
+
+img.pjsk-emu {
+  @apply hover:drop-shadow-pjsk-emu;
+}
+
+img.pjsk-nene {
+  @apply hover:drop-shadow-pjsk-nene;
+}
+
+img.pjsk-rui {
+  @apply hover:drop-shadow-pjsk-rui;
+}
+
+img.pjsk-kanade {
+  @apply hover:drop-shadow-pjsk-kanade;
+}
+
+img.pjsk-mafuyu {
+  @apply hover:drop-shadow-pjsk-mafuyu;
+}
+
+img.pjsk-ena {
+  @apply hover:drop-shadow-pjsk-ena;
+}
+
+img.pjsk-mizuki {
+  @apply hover:drop-shadow-pjsk-mizuki;
+}
+
+img.bandori-kasumi {
+  @apply hover:drop-shadow-bandori-kasumi;
+}
+
+img.bandori-tae {
+  @apply hover:drop-shadow-bandori-tae;
+}
+
+img.bandori-rimi {
+  @apply hover:drop-shadow-bandori-rimi;
+}
+
+img.bandori-saya {
+  @apply hover:drop-shadow-bandori-saya;
+}
+
+img.bandori-arisa {
+  @apply hover:drop-shadow-bandori-arisa;
+}
+
+img.bandori-ran {
+  @apply hover:drop-shadow-bandori-ran;
+}
+
+img.bandori-moca {
+  @apply hover:drop-shadow-bandori-moca;
+}
+
+img.bandori-himari {
+  @apply hover:drop-shadow-bandori-himari;
+}
+
+img.bandori-tomoe {
+  @apply hover:drop-shadow-bandori-tomoe;
+}
+
+img.bandori-tsugumi {
+  @apply hover:drop-shadow-bandori-tsugumi;
+}
+
+img.bandori-aya {
+  @apply hover:drop-shadow-bandori-aya;
+}
+
+img.bandori-hina {
+  @apply hover:drop-shadow-bandori-hina;
+}
+
+img.bandori-chisato {
+  @apply hover:drop-shadow-bandori-chisato;
+}
+
+img.bandori-maya {
+  @apply hover:drop-shadow-bandori-maya;
+}
+
+img.bandori-eve {
+  @apply hover:drop-shadow-bandori-eve;
+}
+
+img.bandori-yukina {
+  @apply hover:drop-shadow-bandori-yukina;
+}
+
+img.bandori-sayo {
+  @apply hover:drop-shadow-bandori-sayo;
+}
+
+img.bandori-lisa {
+  @apply hover:drop-shadow-bandori-lisa;
+}
+
+img.bandori-ako {
+  @apply hover:drop-shadow-bandori-ako;
+}
+
+img.bandori-rinko {
+  @apply hover:drop-shadow-bandori-rinko;
+}
+
+img.bandori-kokoro {
+  @apply hover:drop-shadow-bandori-kokoro;
+}
+
+img.bandori-kaoru {
+  @apply hover:drop-shadow-bandori-kaoru;
+}
+
+img.bandori-hagumi {
+  @apply hover:drop-shadow-bandori-hagumi;
+}
+
+img.bandori-kanon {
+  @apply hover:drop-shadow-bandori-kanon;
+}
+
+img.bandori-misaki {
+  @apply hover:drop-shadow-bandori-misaki;
+}
+
+img.bandori-mashiro {
+  @apply hover:drop-shadow-bandori-mashiro;
+}
+
+img.bandori-touko {
+  @apply hover:drop-shadow-bandori-touko;
+}
+
+img.bandori-nanami {
+  @apply hover:drop-shadow-bandori-nanami;
+}
+
+img.bandori-tsukushi {
+  @apply hover:drop-shadow-bandori-tsukushi;
+}
+
+img.bandori-rui {
+  @apply hover:drop-shadow-bandori-rui;
+}
+
+img.bandori-layer {
+  @apply hover:drop-shadow-bandori-layer;
+}
+
+img.bandori-lock {
+  @apply hover:drop-shadow-bandori-lock;
+}
+
+img.bandori-masking {
+  @apply hover:drop-shadow-bandori-masking;
+}
+
+img.bandori-pareo {
+  @apply hover:drop-shadow-bandori-pareo;
+}
+
+img.bandori-chuchu {
+  @apply hover:drop-shadow-bandori-chuchu;
+}
+
+img.bandori-tomori {
+  @apply hover:drop-shadow-bandori-tomori;
+}
+
+img.bandori-anon {
+  @apply hover:drop-shadow-bandori-anon;
+}
+
+img.bandori-rana {
+  @apply hover:drop-shadow-bandori-rana;
+}
+
+img.bandori-soyo {
+  @apply hover:drop-shadow-bandori-soyo;
+}
+
+img.bandori-taki {
+  @apply hover:drop-shadow-bandori-taki;
+}
+
+img.bandori-uika {
+  @apply hover:drop-shadow-bandori-uika;
+}
+
+img.bandori-mutsumi {
+  @apply hover:drop-shadow-bandori-mutsumi;
+}
+
+img.bandori-umiri {
+  @apply hover:drop-shadow-bandori-umiri;
+}
+
+img.bandori-nyamu {
+  @apply hover:drop-shadow-bandori-nyamu;
+}
+
+img.bandori-sakiko {
+  @apply hover:drop-shadow-bandori-sakiko;
 }

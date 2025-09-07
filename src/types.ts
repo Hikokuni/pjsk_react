@@ -1,10 +1,10 @@
-export type GroupId = 'unassigned' | 'ln' | 'mmj' | 'vbs' | 'wxs' | '25n';
-
 export type Group = {
-    id: GroupId;
+    id: string;
+    characters: Character[];
 }
 
 export type Character = {
     id: string;
-    group: GroupId;
+    group: string;
+    spriteImageUrl: string;
 }

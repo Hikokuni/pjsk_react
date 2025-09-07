@@ -3,9 +3,10 @@ import { Character as CharacterType } from './types';
 
 type CharacterProps = {
     character: CharacterType;
+    project: string;
 }
 
-export default function Character({ character }: CharacterProps) {
+export default function Character({ character, project }: CharacterProps) {
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: character.id
     });
@@ -14,16 +15,15 @@ export default function Character({ character }: CharacterProps) {
         transform: `translate(${transform.x}px, ${transform.y}px)`
     } : undefined;
 
-    var path = `/img/${character.id}.png`;
     return(
         <div 
             ref={setNodeRef} 
             {...listeners} 
             {...attributes} 
-            className="flex rounded-lg justify-center pt-4"
+            className={`character ${project}-character`}
             style={style}
         >
-            <img className={`${character.id} flex rounded-lg h-full object-cover cursor-grab drop-shadow-neutral-800 drop-shadow-lg`} src={path} />
+            <img className={`character ${project}-character ${project}-${character.id} rounded-sm object-cover cursor-grab drop-shadow-black drop-shadow-sm`} src={character.spriteImageUrl} />
         </div>
     );
 }
