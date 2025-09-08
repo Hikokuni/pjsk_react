@@ -38,7 +38,7 @@ export default function GroupingGame(game: GroupingGameProps) {
         return `${names.join("")}.${extension}`;
     };
 
-    const downloadFile = (image, { name = "啤酒烧烤分组", extension = "png" } = {}) => {
+    const downloadFile = (image, { name = `${game.project}分组`, extension = "png" } = {}) => {
         const a = document.createElement("a");
         a.href = image;
         a.download = createFileName(extension, name);
