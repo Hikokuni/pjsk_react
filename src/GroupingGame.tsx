@@ -51,7 +51,7 @@ export default function GroupingGame(game: GroupingGameProps) {
     const handleMemeDownload = async () => {
         if (!screenshotArea.current) return;
         await htmlToImage.toJpeg(screenshotArea.current).then(downloadFile);
-        alert("分组结果已存储为 啤酒烧烤分组.png");
+        alert(`分组结果已存储为 ${game.project}分组.png`);
     };
 
     return (
